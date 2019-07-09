@@ -20,8 +20,6 @@ class CreateNhanvienTable extends Migration
             $table->string('DiaChi');
             $table->string('GioiTinh');
             $table->string('SDT');
-            $table->string('CheckLogin');
-            $table->tinyInteger('Admin');
             $table->integer('MaPB');
             $table->integer('MaCV');
         });
