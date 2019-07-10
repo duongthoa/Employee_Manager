@@ -20,6 +20,9 @@ Route::get('/', function () {
 Route::get('login','LoginController@getLogin');
 Route::post('login','LoginController@postLogin');
 
+Route::get('update/{id}','PassUpdateController@show');
+Route::post('update/{id}','PassUpdateController@edit');
+
 //Route::get('login', [ 'as' => 'login', 'uses' => 'Auth\LoginController@getLogin']);
 //Route::post('login', [ 'as' => 'login', 'uses' => 'Auth\LoginController@postLogin']);
 

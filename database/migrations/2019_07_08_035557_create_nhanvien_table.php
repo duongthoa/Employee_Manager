@@ -16,6 +16,11 @@ class CreateNhanvienTable extends Migration
         Schema::create('nhanvien', function (Blueprint $table) {
             $table->increments('MaNV');
             $table->string('HoTenNV');
+            $table->string('username')->unique();
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->integer('level');
+            $table->string('CheckLogin');
             $table->date('NgaySinh');
             $table->string('DiaChi');
             $table->string('GioiTinh');
