@@ -19,14 +19,12 @@ class CreateNhanvienTable extends Migration
             $table->string('username')->unique();
             $table->string('email')->unique();
             $table->string('password');
-            $table->integer('level');
-            $table->string('CheckLogin');
+            $table->tinyInteger('level');
+            $table->tinyInteger('CheckLogin');
             $table->date('NgaySinh');
             $table->string('DiaChi');
             $table->string('GioiTinh');
             $table->string('SDT');
-            $table->integer('MaPB');
-            $table->integer('MaCV');
         });
     }
 

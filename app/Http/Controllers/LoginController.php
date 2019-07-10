@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Http\Requests;
 use Validator;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\MessageBag;
 
 class LoginController extends Controller
@@ -28,13 +28,10 @@ class LoginController extends Controller
     	if ($validator->fails()) {
     		return redirect()->back()->withErrors($validator)->withInput();
     	} else {
-				$login = [
-					'username' => $request->input('username'),
-					'password' => $request->input('password'),
-					'level' => 1,
-					'CheckLogin' => 0
-				];
-				if( DB::table('users')->where($login)->count()==1) {
+			$username = $request->input('username');
+			$password = $request->input('password');
+			dd(Auth::attempt(['email' => $username, 'password' =>$password]));
+    		if( Auth::attempt(['email' => $username, 'password' =>$password])) {
 				return redirect()->intended('/');
     		} else {
     			$errors = new MessageBag(['errorlogin' => 'Tên đăng nhập hoặc mật khẩu không đúng!']);
