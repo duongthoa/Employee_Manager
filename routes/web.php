@@ -15,9 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Route::get('/', 'HomeController@getIndex');
+
 Route::get('login','LoginController@getLogin');
 Route::post('login','LoginController@postLogin');
 
 Route::get('resetpass','ResetPassController@show');
 Route::post('resetpass','ResetPassController@reset');
+
 

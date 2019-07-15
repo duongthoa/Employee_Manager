@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Http\Requests;
 use Validator;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\MessageBag;
 
 class LoginController extends Controller
@@ -16,12 +16,12 @@ class LoginController extends Controller
     }
     public function postLogin(Request $request) {
     	$rules = [
+
     		// 'email' =>'required|email',
+
     		'password' => 'required|min:6'
     	];
     	$messages = [
-    		//'email.required' => 'Email là trường bắt buộc',
-            //'email.email' => 'Email không đúng định dạng',
             'username.required' => 'Tên đăng nhập là trường bắt buộc',
     		'password.required' => 'Mật khẩu là trường bắt buộc',
     		'password.min' => 'Mật khẩu phải chứa ít nhất 6 ký tự',
@@ -40,9 +40,10 @@ class LoginController extends Controller
 				}
 				else
     			 	return redirect()->intended('/');
+
     		} else {
-    			$errors = new MessageBag(['errorlogin' => 'Tên đăng nhập hoặc mật khẩu không đúng']);
-    			return redirect()->back()->withInput()->withErrors($errors);
+    			$errors = new MessageBag(['errorlogin' => 'Tên đăng nhập hoặc mật khẩu không đúng!']);
+				return redirect()->back()->withInput()->withErrors($errors);
     		}
     	}
     }
