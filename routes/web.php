@@ -18,4 +18,6 @@ Route::get('/', function () {
 Route::get('login','LoginController@getLogin');
 Route::post('login','LoginController@postLogin');
 
-Route::get('','HomeController@getIndex');
+Route::get('resetpass','ResetPassController@show');
+Route::post('resetpass','ResetPassController@reset');
+

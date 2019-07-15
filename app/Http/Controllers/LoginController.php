@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
 use App\Http\Requests;
 use Validator;
 use Auth;
@@ -34,9 +34,12 @@ class LoginController extends Controller
             //$email = $request->input('email');
             $username = $request->input('username');
     		$password = $request->input('password');
-
     		if( Auth::attempt(['username' => $username, 'password' =>$password])) {
-    			return redirect()->intended('/');
+				if( Auth::user()->CheckLogin == 0){
+					return redirect()->intended('resetpass');
+				}
+				else
+    			 	return redirect()->intended('/');
     		} else {
     			$errors = new MessageBag(['errorlogin' => 'Tên đăng nhập hoặc mật khẩu không đúng']);
     			return redirect()->back()->withInput()->withErrors($errors);
