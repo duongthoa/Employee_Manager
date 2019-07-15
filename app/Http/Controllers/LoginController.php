@@ -16,9 +16,6 @@ class LoginController extends Controller
     }
     public function postLogin(Request $request) {
     	$rules = [
-
-    		// 'email' =>'required|email',
-
     		'password' => 'required|min:6'
     	];
     	$messages = [
