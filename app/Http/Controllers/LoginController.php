@@ -30,8 +30,8 @@ class LoginController extends Controller
     	} else {
 			$username = $request->input('username');
 			$password = $request->input('password');
-			dd(Auth::attempt(['email' => $username, 'password' =>$password]));
-    		if( Auth::attempt(['email' => $username, 'password' =>$password])) {
+			//dd(Auth::attempt(['email' => $username, 'password' =>$password]));
+    		if( Auth::attempt(['username' => $username, 'password' =>$password])) {
 				return redirect()->intended('/');
     		} else {
     			$errors = new MessageBag(['errorlogin' => 'Tên đăng nhập hoặc mật khẩu không đúng!']);

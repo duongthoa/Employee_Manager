@@ -16,8 +16,13 @@ class UsersTableSeeder extends Seeder
         	'username' => 'duongthoa',
         	'email' =>'duongthoa98@gmail.com',
             'password' => bcrypt('123456'),
-            'level' => '1',
-            'CheckLogin' => '0'
+            'HoTenNV' => 'Dương Thoa',
+            'Ngaysinh' => '1998-07-02',
+            'DiaChi' => 'Đại La',
+            'GioiTinh' => 'Nữ',
+            'SDT' => '1234567890',
+            'CheckLogin' => '0',
+            'level' => '1'
         ]);
     }
 }

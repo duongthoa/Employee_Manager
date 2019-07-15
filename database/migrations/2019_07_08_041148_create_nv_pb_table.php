@@ -17,8 +17,8 @@ class CreateNvPbTable extends Migration
             $table->string('ChucVu');
             $table->integer('MaPB')->unsigned();
             $table->foreign('MaPB')->references('MaPB')->on('phongban');
-            $table->integer('MaNV')->unsigned();
-            $table->foreign('MaNV')->references('MaNV')->on('nhanvien');
+            $table->integer('id')->unsigned();
+            $table->foreign('id')->references('id')->on('users');
         });
     }
 
