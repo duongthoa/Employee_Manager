@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin');
 });
 
 //Route::get('/', 'HomeController@getIndex');
@@ -23,4 +23,5 @@ Route::post('login','LoginController@postLogin');
 Route::get('resetpass','ResetPassController@show');
 Route::post('resetpass','ResetPassController@reset');
 
-
+Route::get('addaccount','AddAccountController@insertform');
+Route::post('addaccount','AddAccountController@insert');

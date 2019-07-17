@@ -14,7 +14,7 @@ class CreatePhongbanTable extends Migration
     public function up()
     {
         Schema::create('phongban', function (Blueprint $table) {
-            $table->bigIncrements('MaPB');
+            $table->increments('MaPB');
             $table->string('TenPB');
         });
     }
