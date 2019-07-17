@@ -25,3 +25,16 @@ Route::post('resetpass','ResetPassController@reset');
 
 Route::get('addaccount','AddAccountController@insertform');
 Route::post('addaccount','AddAccountController@insert');
+
+Route::get('user','UserController@index');
+Route::get('user/{id}/edit','UserController@edit');
+Route::post('user/update','UserController@update');
+Route::get('user/{id}/delete','UserController@destroy');
+
+Route::get('adddepartment','AddDepartmentController@insertform');
+Route::post('adddepartment','AddDepartmentController@insert');
+
+Route::get('department','DepartmentController@index');
+Route::get('department/{MaPB}/edit','DepartmentController@edit');
+Route::post('department/update','DepartmentController@update');
+Route::get('department/{MaPB}/delete','DepartmentController@destroy');

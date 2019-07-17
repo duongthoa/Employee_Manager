@@ -49,8 +49,7 @@ class AddAccountController extends Controller
             $user->level = $level;
             // $user->
             $user->save();
-            echo "Thêm tài khoản thành công.<br/>";
-            echo '<a href = "/">Click Here</a> to go back.';
+            return redirect()->intended('user');
         }
     }
 }

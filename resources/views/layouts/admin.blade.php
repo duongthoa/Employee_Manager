@@ -59,18 +59,18 @@
 					<ul class="nav nav-tabs nav-stacked main-menu">
 						<li><a href="/"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Thống kê</span></a></li>	
                         <li>
-                            <a class="dropmenu" href="messages.html"><i class="icon-user"></i><span class="hidden-tablet"> Quản lý nhân viên</span></a>
+                            <a class="dropmenu" href="#"><i class="icon-user"></i><span class="hidden-tablet"> Quản lý nhân viên</span></a>
                             <ul>
-								<li><a class="submenu" href="submenu.html"><i class="icon-edit"></i><span class="hidden-tablet"> Thêm nhân viên</span></a></li>
-								<li><a class="submenu" href="submenu2.html"><i class="icon-list"></i><span class="hidden-tablet"> Thông tin nhân viên</span></a></li>
-								<li><a class="submenu" href="submenu3.html"><i class="icon-lock"></i><span class="hidden-tablet"> Thay đổi mật khẩu</span></a></li>
+								<li><a class="submenu" href="addaccount"><i class="icon-edit"></i><span class="hidden-tablet"> Thêm nhân viên</span></a></li>
+								<li><a class="submenu" href="user"><i class="icon-list"></i><span class="hidden-tablet"> Thông tin nhân viên</span></a></li>
+								<li><a class="submenu" href="#"><i class="icon-lock"></i><span class="hidden-tablet"> Thay đổi mật khẩu</span></a></li>
 							</ul>
                         </li>
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-list-alt"></i><span class="hidden-tablet"> Quản lý phòng ban</span></a>
 							<ul>
-								<li><a class="submenu" href="submenu.html"><i class="icon-edit"></i><span class="hidden-tablet"> Thêm phòng ban</span></a></li>
-								<li><a class="submenu" href="submenu2.html"><i class="icon-list"></i><span class="hidden-tablet"> Thông tin phòng ban</span></a></li>
+								<li><a class="submenu" href="adddepartment"><i class="icon-edit"></i><span class="hidden-tablet"> Thêm phòng ban</span></a></li>
+								<li><a class="submenu" href="department"><i class="icon-list"></i><span class="hidden-tablet"> Thông tin phòng ban</span></a></li>
 							</ul>	
 						</li>
 					</ul>

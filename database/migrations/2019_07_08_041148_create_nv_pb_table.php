@@ -14,12 +14,11 @@ class CreateNvPbTable extends Migration
     public function up()
     {
         Schema::create('nv_pb', function (Blueprint $table) {
-            $table->integer('id')->unsigned();
-            $table->foreign('id')->references('id')->on('users');
+            $table->integer('MaNV')->unsigned();
+            $table->foreign('MaNV')->references('id')->on('users');
             $table->integer('MaPB')->unsigned();
-            $table->foreign('MaPB')->references('MaPB')->on('phongban');
+            $table->foreign('MaPB')->references('id')->on('phongban');
             $table->string('ChucVu');
-
         });
     }
 
