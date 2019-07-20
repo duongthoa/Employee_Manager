@@ -4,7 +4,7 @@
     <ul class="breadcrumb">
 		<li>
 			<i class="icon-home"></i>
-			<a href="/">Trang chủ</a>
+			<a href="/">Trang quản trị</a>
 			<i class="icon-angle-right"></i> 
 		</li>
 		<li>
@@ -31,19 +31,28 @@
                                 <div class="control-group">
 								    <label class="control-label" for="focusedInput">Chức vụ:</label>
 								    <div class="controls">
-                                        <input class="form-control" id="ChucVu" placeholder="Chức vụ" name="ChucVu" type="ChucVu" value="{{ old('ChucVu') }}">   
+										<select id="selectError3" name="ChucVu">
+											<option>Nhân viên</option>
+											<option>Trưởng phòng</option>
+								  		</select> 
                                     </div>
                                 </div>
                                 <div class="control-group">
 								    <label class="control-label" for="focusedInput">Phòng ban:</label>
 								    <div class="controls">
-                                        <input class="form-control" id="TenPB" placeholder="Phòng ban" name="TenPB" type="TenPB" value="{{ old('TenPB') }}">  
+										<select id="selectError3" name="TenPB">
+											<option>Bộ phận kỹ thuật</option>
+											<option>Bộ phận quản lý</option>
+								  		</select> 
                                     </div>
                                 </div>
                                 <div class="control-group">
 								    <label class="control-label" for="focusedInput">Level:</label>
 								    <div class="controls">
-                                        <input class="form-control" id="Level" placeholder="Level" name="Level" type="Level" value="{{ old('Level', $getUser['Level']) }}">  
+										<select id="selectError3" name="level">
+											<option>0</option>
+											<option>1</option>
+								  		</select> 
                                     </div>
                                 </div>
                                 {!! csrf_field() !!}

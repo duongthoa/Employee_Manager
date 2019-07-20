@@ -13,7 +13,8 @@ class LoginController extends Controller
 {
     public function getLogin() {
     	return view('login');
-    }
+	}
+	
     public function postLogin(Request $request) {
     	$rules = [
     		'password' => 'required|min:6'
@@ -35,13 +36,21 @@ class LoginController extends Controller
 				if( Auth::user()->CheckLogin == 0){
 					return redirect()->intended('resetpass');
 				}
-				else
-    			 	return redirect()->intended('/');
-
+				else {
+					if ( Auth::user()->Level == 1)
+						return redirect()->intended('/');
+					else
+						return redirect()->intended('/home');
+				}
     		} else {
     			$errors = new MessageBag(['errorlogin' => 'Tên đăng nhập hoặc mật khẩu không đúng!']);
 				return redirect()->back()->withInput()->withErrors($errors);
     		}
     	}
-    }
+	}
+	
+	public function getLogout() {
+        Auth::logout();
+        return redirect()->intended('login');
+     }
 }

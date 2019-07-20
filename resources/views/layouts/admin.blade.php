@@ -21,7 +21,7 @@
 		<div class="navbar-inner">
 			<div class="container-fluid">
 				
-				<a class="brand" href="index.html"><span><h2>Trang quản trị</h2></span></a>
+				<a class="brand" href="#"><span><h2>Trang quản trị</h2></span></a>
 								
 				<!-- start: Header Menu -->
 				<div class="nav-no-collapse header-nav">
@@ -29,15 +29,16 @@
 						<!-- start: User Dropdown -->
 						<li class="dropdown">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="halflings-icon white user"></i> Quản trị viên
+								<i class="halflings-icon white user"></i> Quản trị viên: {{ Auth::user()->HoTenNV }}
 								<span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu">
 								<li class="dropdown-menu-title">
  									<span>Cài đặt</span>
 								</li>
+								<li><a href="#"><i class="halflings-icon home"></i> Trang chủ</a></li>
 								<li><a href="#"><i class="halflings-icon user"></i> Thông tin cá nhân</a></li>
-								<li><a href="login.html"><i class="halflings-icon off"></i> Đăng xuất</a></li>
+								<li><a href="{{url('logout')}}"><i class="halflings-icon off"></i> Đăng xuất</a></li>
 							</ul>
 						</li>
 						<!-- end: User Dropdown -->
@@ -50,7 +51,7 @@
 	</div>
 	<!-- start: Header -->
 	
-		<div class="container-fluid-full">
+	<div class="container-fluid-full">
 		<div class="row-fluid">
 				
 			<!-- start: Main Menu -->
@@ -86,7 +87,7 @@
 			<!-- end: Content -->
 		</div><!--/#content.span10-->
 		</div><!--/fluid-row-->
-	
+ 	</div>
 	<div class="clearfix"></div>
 
 	<!-- start: JavaScript-->

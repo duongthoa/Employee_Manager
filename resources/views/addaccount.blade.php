@@ -21,6 +21,13 @@
 					<div class="box-content">
 						<form class="form-horizontal" role="form" action="{{ url('/addaccount') }}" method="post">
 							<fieldset>
+							<div class="control-group">
+								    <label class="control-label" for="focusedInput">Tên nhân viên:</label>
+								    <div class="controls">
+                                        <input class="form-control" id="HoTenNV" placeholder="Tên nhân viên" name="HoTenNV" type="HoTenNV" value=""> 
+                                    </div>
+                                    <div class="controls"><p style="color:red">{{$errors->first('HoTenNV')}}</p></div>
+                                </div>
 							    <div class="control-group">
 								    <label class="control-label" for="focusedInput">Username:</label>
 								    <div class="controls">
@@ -43,11 +50,14 @@
                                     <div class="controls"><p style="color:red">{{$errors->first('password')}}</p></div>
                                 </div>
                                 <div class="control-group">
-								    <label class="control-label" for="focusedInput">Level:</label>
+								    <label class="control-label" for="selectError3">Level:</label>
 								    <div class="controls">
-                                        <input class="form-control" id="level" placeholder="Level" name="level" type="level" value="">  
+										<select id="selectError3" name="level">
+											<option>0</option>
+											<option>1</option>
+								  		</select> 
                                     </div>
-                                    <div class="controls"><p style="color:red">{{$errors->first('level')}}</p></div>
+									<div class="controls"><p style="color:red">{{$errors->first('level')}}</p></div>
                                 </div>
                                 {!! csrf_field() !!}
 							  <div class="form-actions">

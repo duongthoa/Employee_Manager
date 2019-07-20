@@ -18,12 +18,14 @@ class AddAccountController extends Controller
 	
     public function insert(Request $request) {
         $rules = [
+            'HoTenNV' =>'required',
             'username' =>'required',
             'email' =>'required|email',
             'password' => 'required|min:6',
             'level' =>'required'
         ];
         $messages = [
+            'HoTenNV.required' => 'Tên nhân viên là trường bắt buộc',
             'username.required' => 'Tên đăng nhập là trường bắt buộc',
             'email.required' => 'Email là trường bắt buộc',
             'email.email' => 'Email không đúng định dạng',
@@ -35,13 +37,15 @@ class AddAccountController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         } else {
+            $HoTenNV = $request->input('HoTenNV');
             $username = $request->input('username');
             $email = $request->input('email');
             $password = $request->input('password');
             $password = bcrypt($password);
-            $level = $request->input('level');
+            $level = $request['level'];
         
             $user = new User();
+            $user->HoTenNV = $HoTenNV;
             $user->username = $username;
             $user->email = $email;
             $user->password = $password;

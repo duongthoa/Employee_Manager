@@ -28,9 +28,9 @@ class UserController extends Controller
 
     public function update(Request $request){
         $HoTenNV = $request->input('HoTenNV');
-        //$ChucVu = $request->input('ChucVu');
-        //$TenPB = $request->input('TenPB');
-        $Level = $request->input('Level');
+        //$ChucVu = $request['ChucVu'];
+        //$TenPB = $request['TenPB'];
+        $Level = $request['level'];
         $id = $request->input('id');
         $user = new User();
         $getUser = $user->find($id);
