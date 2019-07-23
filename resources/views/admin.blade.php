@@ -36,8 +36,8 @@
 								<li class="dropdown-menu-title">
  									<span>Cài đặt</span>
 								</li>
-								<li><a href="#"><i class="halflings-icon home"></i> Trang chủ</a></li>
-								<li><a href="#"><i class="halflings-icon user"></i> Thông tin cá nhân</a></li>
+								<li><a href="home"><i class="halflings-icon home"></i> Trang chủ</a></li>
+								<li><a href="staff"><i class="halflings-icon user"></i> Thông tin cá nhân</a></li>
 								<li><a href="{{url('logout')}}"><i class="halflings-icon off"></i> Đăng xuất</a></li>
 							</ul>
 						</li>

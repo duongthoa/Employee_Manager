@@ -19,4 +19,8 @@ class Phongban extends Authenticatable
     protected $fillable = [
         'TenPB',
     ];
+
+    public function users(){
+        return $this->belongsToMany('App\Models\User', 'phongban_user', 'phongban_id', 'user_id');
+    }
 }

@@ -32,8 +32,9 @@
 								    <label class="control-label" for="focusedInput">Chức vụ:</label>
 								    <div class="controls">
 										<select id="selectError3" name="ChucVu">
-											<option>Nhân viên</option>
-											<option>Trưởng phòng</option>
+											@foreach ($users as $user)
+												<option value="">{{ $user->phongban_user[0] ? $user->phongban_user[0]->ChucVu : '' }}</option>
+											@endforeach
 								  		</select> 
                                     </div>
                                 </div>
@@ -41,8 +42,9 @@
 								    <label class="control-label" for="focusedInput">Phòng ban:</label>
 								    <div class="controls">
 										<select id="selectError3" name="TenPB">
-											<option>Bộ phận kỹ thuật</option>
-											<option>Bộ phận quản lý</option>
+											@foreach ($users as $user)
+												<option value="{{ $user->phongbans[0] ? $user->phongbans[0]->id : '' }}">{{ $user->phongbans[0] ? $user->phongbans[0]->TenPB : '' }}</option>
+											@endforeach
 								  		</select> 
                                     </div>
                                 </div>
@@ -50,8 +52,8 @@
 								    <label class="control-label" for="focusedInput">Level:</label>
 								    <div class="controls">
 										<select id="selectError3" name="level">
-											<option>0</option>
-											<option>1</option>
+											<option value="0">0</option>
+											<option value="1">1</option>
 								  		</select> 
                                     </div>
                                 </div>

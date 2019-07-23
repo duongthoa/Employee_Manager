@@ -29,12 +29,12 @@
 							  </tr>
 						    </thead>   
 						    <tbody>
-                            @foreach ($users as $user)
+							@foreach ($users as $user)
 							<tr>
 								<td>{{ $user->id }}</td>
 								<td class="center">{{ $user->HoTenNV }}</td>
-								<td class="center"></td>
-								<td class="center"></td>
+								<td class="center">{{ $user->phongban_user[0] ? $user->phongban_user[0]->ChucVu : '' }}</td>
+								<td class="center">{{ $user->phongbans[0] ? $user->phongbans[0]->TenPB : '' }}</td>
 								<td class="center">
 									<a class="btn btn-info" href="user/{{ $user->id }}/edit">
 										<i class="halflings-icon white edit"></i>  

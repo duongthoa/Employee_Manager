@@ -30,7 +30,7 @@
                                 </div>
                                 {!! csrf_field() !!}
 							  <div class="form-actions">
-								<button type="submit" class="btn btn-primary">Thêm</button>
+								<button type="submit" class="btn btn-primary">Thêm phòng ban</button>
 							  </div>
 							</fieldset>
 						  </form>

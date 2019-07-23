@@ -15,15 +15,17 @@ class UserController extends Controller
     public function index(){
         //$users = DB::select('select * from users');
       //return view('listuser',['users'=>$users]);
-        $user = new User();
-        $users = $user->all();
+        //$user = new User();
+        $users = User::all();
+        //$user = User::find(1);
       return view('listuser')->with('users', $users);
     }
 
     public function edit($id){
+        $users = User::all();
         $user = new User();
         $getUser = $user->find($id)->toArray();
-      return view('edituser')->with('getUser', $getUser);
+      return view('edituser', ['users' => $users, 'getUser' => $getUser]);//->with('getUser', $getUser);
     }
 
     public function update(Request $request){
@@ -35,8 +37,7 @@ class UserController extends Controller
         $user = new User();
         $getUser = $user->find($id);
         $getUser->HoTenNV = $HoTenNV;
-        //$getUser->ChucVu = $ChucVu;
-        //$getUser->TenPB = $TenPB;
+        //$getUser->phongbans()->attach($TenPB, [ 'ChucVu' => 'Nhân viên',]);
         $getUser->Level = $Level;
         $getUser->save();
       return redirect()->intended('user');

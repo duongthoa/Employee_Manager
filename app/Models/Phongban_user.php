@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Nv_pb extends Model
+class Phongban_user extends Model
 {
-    protected $table = 'nv_pb';
+    protected $table = 'Phongban_user';
+
 }
