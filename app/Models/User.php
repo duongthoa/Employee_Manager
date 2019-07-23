@@ -38,11 +38,11 @@ class User extends Authenticatable
     ];
 
     public function phongbans(){
-       return $this->belongsToMany('App\Models\Phongban', 'phongban_user', 'phongban_id', 'user_id');
+       return $this->belongsToMany('App\Models\Phongban', 'phongban_user', 'user_id', 'phongban_id')->withPivot('id', 'ChucVu');
     }
 
-    public function phongban_user(){
+    /*public function phongban_user(){
         return $this->hasMany('App\Models\Phongban_user', 'user_id');
-     }
+     }*/
     
 }

@@ -33,7 +33,7 @@
 								    <div class="controls">
 										<select id="selectError3" name="ChucVu">
 											@foreach ($users as $user)
-												<option value="">{{ $user->phongban_user[0] ? $user->phongban_user[0]->ChucVu : '' }}</option>
+												<option>{{ $user->phongbans[0]->pivot->ChucVu }}</option>
 											@endforeach
 								  		</select> 
                                     </div>
@@ -42,8 +42,8 @@
 								    <label class="control-label" for="focusedInput">Phòng ban:</label>
 								    <div class="controls">
 										<select id="selectError3" name="TenPB">
-											@foreach ($users as $user)
-												<option value="{{ $user->phongbans[0] ? $user->phongbans[0]->id : '' }}">{{ $user->phongbans[0] ? $user->phongbans[0]->TenPB : '' }}</option>
+											@foreach ($phongbans as $phongban)
+												<option value="{{ $phongban->id }}">{{ $phongban->TenPB }}</option>
 											@endforeach
 								  		</select> 
                                     </div>

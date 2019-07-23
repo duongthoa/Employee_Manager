@@ -8,4 +8,6 @@ class Phongban_user extends Model
 {
     protected $table = 'Phongban_user';
 
+    public $timestamps = false;
+
 }

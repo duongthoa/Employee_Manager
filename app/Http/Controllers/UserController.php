@@ -7,6 +7,8 @@ use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Phongban;
+use App\Models\Phongban_user;
 use Validator;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,24 +24,32 @@ class UserController extends Controller
     }
 
     public function edit($id){
+        $phongbans = Phongban::all();
         $users = User::all();
         $user = new User();
         $getUser = $user->find($id)->toArray();
-      return view('edituser', ['users' => $users, 'getUser' => $getUser]);//->with('getUser', $getUser);
+      return view('edituser', ['phongbans' => $phongbans, 'users' => $users, 'getUser' => $getUser]);
     }
 
     public function update(Request $request){
         $HoTenNV = $request->input('HoTenNV');
-        //$ChucVu = $request['ChucVu'];
-        //$TenPB = $request['TenPB'];
+        $ChucVu = $request['ChucVu'];
+        $user_id = $request->input('id');
+        $TenPB = $request['TenPB'];
         $Level = $request['level'];
         $id = $request->input('id');
+
         $user = new User();
         $getUser = $user->find($id);
         $getUser->HoTenNV = $HoTenNV;
-        //$getUser->phongbans()->attach($TenPB, [ 'ChucVu' => 'Nhân viên',]);
         $getUser->Level = $Level;
         $getUser->save();
+
+        $phongban = new Phongban_user();
+        $getPhongban = $phongban->find($user_id);
+        $getPhongban->phongban_id = $TenPB;
+        $getPhongban->ChucVu = $ChucVu;
+        $getPhongban->save();
       return redirect()->intended('user');
     }
 
