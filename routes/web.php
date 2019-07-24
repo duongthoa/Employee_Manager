@@ -49,3 +49,5 @@ Route::get('department/{MaPB}/delete','DepartmentController@destroy');
 Route::get('staff','StaffController@index');
 Route::get('staff/edit','StaffController@edit');
 Route::post('staff/update','StaffController@update');
+
+Route::get('inforstaff','StaffController@show');

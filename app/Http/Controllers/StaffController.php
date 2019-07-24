@@ -7,6 +7,8 @@ use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Phongban;
+use App\Models\Phongban_user;
 use Validator;
 use Illuminate\Support\Facades\Auth;
 
@@ -60,4 +62,8 @@ class StaffController extends Controller
       return redirect()->intended('staff');
     }
 
+    public function show(){
+        $users = User::all();
+      return view('inforstaff')->with('users', $users);
+    }
 }
