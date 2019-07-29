@@ -9,6 +9,7 @@
             </div>
             
             <div class="card-body text-center">
+            <form class="form-horizontal" role="form" action="{{ url('/inforstaff/usersListPhpExcel') }}" method="get">
                 <table class="table table-bordered bootstrap-datatable datatable">
 					<thead class="thead-light">
 						<tr>
@@ -35,6 +36,9 @@
                         @endforeach  
 					</tbody>
 				</table>
+                {!! csrf_field() !!}
+                    <button type="submit" class="btn btn-primary">Xuất danh sách nhân viên</button>
+            </form>
             </div>
         </div>
     </div>
