@@ -31,8 +31,8 @@ class LoginController extends Controller
     	} else {
             //$email = $request->input('email');
             $username = $request->input('username');
-    		$password = $request->input('password');
-    		if( Auth::attempt(['username' => $username, 'password' =>$password])) {
+			$password = $request->input('password');
+    		if( Auth::attempt(['username' => $username, 'password' => $password]) ) {
 				if( Auth::user()->CheckLogin == 0){
 					return redirect()->intended('resetpass');
 				}

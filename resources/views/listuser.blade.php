@@ -33,7 +33,7 @@
 							<tr>
 								<td>{{ $user->id }}</td>
 								<td class="center">{{ $user->HoTenNV }}</td>
-								<td class="center">{{ $user->phongbans[0]->pivot->ChucVu }}</td>
+								<td class="center">{{  $user->phongbans[0] ? $user->phongbans[0]->pivot->ChucVu : '' }}</td>
 								<td class="center">{{ $user->phongbans[0] ? $user->phongbans[0]->TenPB : '' }}</td>
 								<td class="center">
 									<a class="btn btn-info" href="user/{{ $user->id }}/edit">

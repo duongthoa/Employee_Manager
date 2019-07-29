@@ -21,9 +21,6 @@ class StaffController extends Controller
     }
 
     public function edit(){
-        //$user = Auth::user();
-        //$user = new User();
-        //$getUser = $user->find($id)->toArray();
       return view('editinforuser');//->with('getUser', $getUser);
       //return view('editinforuser')->with('user', $user);
     }
@@ -51,19 +48,33 @@ class StaffController extends Controller
         $user->SDT = $SDT;
         // $user->
         $user->save();
-
-        //$user = new User();
-        //$getUser = $user->find($id);
-        //$getUser->HoTenNV = $HoTenNV;
-        //$getUser->ChucVu = $ChucVu;
-        //$getUser->TenPB = $TenPB;
-        //$getUser->Level = $Level;
-        //$getUser->save();
       return redirect()->intended('staff');
     }
 
     public function show(){
-        $users = User::all();
-      return view('inforstaff')->with('users', $users);
+        $getusers = User::find(Auth::user()->id);
+        if( $getusers->phongbans[0]->pivot->ChucVu == 'Trưởng phòng'){
+          $users = User::all();
+          foreach ($users as $user) {
+            if( $user->phongbans[0]->TenPB == 'Bộ phận quản lý'){
+            $Users = User::whereHas('phongbans', function ($query) { $query->where('TenPB', 'like', 'Bộ phận quản lý%'); $query->where('ChucVu', 'like', 'Nhân viên%');})->get();
+            return view('inforstaff', ['getusers' => $getusers, 'users' => $users, 'Users' => $Users]);
+            }
+            elseif($user->phongbans[0]->TenPB == 'Bộ phận kỹ thuật'){
+              $Users = User::whereHas('phongbans', function ($query) { $query->where('TenPB', 'like', 'Bộ phận kỹ thuật%'); $query->where('ChucVu', 'like', 'Nhân viên%');})->get();
+              return view('inforstaff', ['getusers' => $getusers, 'users' => $users, 'Users' => $Users]);
+            }
+            elseif($user->phongbans[0]->TenPB == 'Bộ phận truyền thông'){
+                $Users = User::whereHas('phongbans', function ($query) { $query->where('TenPB', 'like', 'Bộ phận truyền thông%'); $query->where('ChucVu', 'like', 'Nhân viên%');})->get();
+                return view('inforstaff', ['getusers' => $getusers, 'users' => $users, 'Users' => $Users]);
+            }
+            elseif($user->phongbans[0]->TenPB == 'Bộ phận tuyển dụng'){
+              $Users = User::whereHas('phongbans', function ($query) { $query->where('TenPB', 'like', 'Bộ phận tuyển dụng%'); $query->where('ChucVu', 'like', 'Nhân viên%');})->get();
+              return view('inforstaff', ['getusers' => $getusers, 'users' => $users, 'Users' => $Users]);
+          }
+          }
+        }
+        else
+					return redirect()->intended('/home');
     }
 }

@@ -12,7 +12,7 @@
   <body>
     <div class="container-fluid">
         <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-            <a class="navbar-brand" href="#"><h1>Trang chủ</h1></a>
+            <a class="navbar-brand" href="/home"><h1>Trang chủ</h1></a>
             <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
               aria-expanded="false" aria-label="Toggle navigation"></button>
             <div class="collapse navbar-collapse" id="collapsibleNavId">
@@ -26,7 +26,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Thông tin cấp dưới</a>
+                        <a class="nav-link" href="inforstaff">Thông tin cấp dưới</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav my-2 my-lg-0">

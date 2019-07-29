@@ -45,7 +45,7 @@ class ResetPassController extends Controller
             if ( Auth::user()->Level == 1)
 				return redirect()->intended('/');
 			else
-				return redirect()->intended('login');
+				return redirect()->intended('/home');
         }
     }
 }

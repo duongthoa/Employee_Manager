@@ -66,7 +66,7 @@ return [
     */
 
     'providers' => [
-        'nhanvien' => [
+        'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
