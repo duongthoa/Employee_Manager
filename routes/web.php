@@ -37,6 +37,8 @@ Route::get('user','UserController@index');
 Route::get('user/{id}/edit','UserController@edit');
 Route::post('user/update','UserController@update');
 Route::get('user/{id}/delete','UserController@destroy');
+Route::get('user/pass','UserController@show');
+Route::get('user/reset','UserController@resetpassword');
 
 Route::get('adddepartment','AddDepartmentController@insertform');
 Route::post('adddepartment','AddDepartmentController@insert');
@@ -51,5 +53,4 @@ Route::get('staff/edit','StaffController@edit');
 Route::post('staff/update','StaffController@update');
 
 Route::get('inforstaff','StaffController@show');
-//Route::get('books/booksListPhpExcel', ['uses' => 'BooksController@booksListPhpExcel', 'as' => 'books.booksListPhpExcel']); //dinh nghia ham tao excel dung PHPExcel
 Route::get('inforstaff/usersListPhpExcel','StaffController@usersListPhpExcel');

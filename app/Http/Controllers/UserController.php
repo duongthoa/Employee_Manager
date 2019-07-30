@@ -57,4 +57,9 @@ class UserController extends Controller
         User::find($id)->delete();
         return redirect()->intended('user');
     }
+
+    public function show(){
+      $users = User::all();
+    return view('listuserpass')->with('users', $users);
+  }
 }
