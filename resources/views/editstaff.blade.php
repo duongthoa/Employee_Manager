@@ -15,10 +15,10 @@
     <div class="row-fluid sortable">
 				<div class="box span12">
 					<div class="box-header" data-original-title>
-						<h2><i class="halflings-icon white edit"></i><span class="break"></span>Chỉnh sửa thông tin nhân viên</h2>
+						<h2><i class="halflings-icon white edit"></i><span class="break"></span>Điều chỉnh nhân viên</h2>
 					</div>
 					<div class="box-content">
-						<form class="form-horizontal" role="form" action="{{ url('/user/update') }}" method="post">
+						<form class="form-horizontal" role="form" action="{{ url('/edituser/update') }}" method="post">
 							<fieldset>
                                 <input type="hidden" name="id" value="{{ old('id', $getUser['id'])}}">
 							    <div class="control-group">
@@ -28,15 +28,22 @@
                                     </div>
                                 </div>
                                 <div class="control-group">
-								    <label class="control-label" for="focusedInput">Username:</label>
+								    <label class="control-label" for="focusedInput">Chức vụ:</label>
 								    <div class="controls">
-                                        <input class="form-control" id="username" placeholder="Username" name="username" type="username" value="{{ old('username', $getUser['username']) }}"> 
+										<select id="selectError3" name="ChucVu">
+											<option value="Trưởng phòng">Trưởng phòng</option>
+											<option value="Nhân viên">Nhân viên</option>
+								  		</select> 
                                     </div>
                                 </div>
-								<div class="control-group">
-								    <label class="control-label" for="focusedInput">Email:</label>
+                                <div class="control-group">
+								    <label class="control-label" for="focusedInput">Phòng ban:</label>
 								    <div class="controls">
-                                        <input class="form-control" id="email" placeholder="Email" name="email" type="email" value="{{ old('email', $getUser['email']) }}"> 
+										<select id="selectError3" name="TenPB">
+											@foreach ($phongbans as $phongban)
+												<option value="{{ $phongban->id }}">{{ $phongban->TenPB }}</option>
+											@endforeach
+								  		</select> 
                                     </div>
                                 </div>
                                 <div class="control-group">

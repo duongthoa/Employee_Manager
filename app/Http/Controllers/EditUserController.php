@@ -7,10 +7,12 @@ use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Phongban;
+use App\Models\Phongban_user;
 use Validator;
 use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+class EditUserController extends Controller
 {
     public function index(){
         //$users = DB::select('select * from users');
@@ -18,40 +20,36 @@ class UserController extends Controller
         //$user = new User();
         $users = User::all();
         //$user = User::find(1);
-      return view('listuser')->with('users', $users);
+      return view('liststaff')->with('users', $users);
     }
 
     public function edit($id){
+        $phongbans = Phongban::all();
+        //$users = User::all();
         $user = new User();
         $getUser = $user->find($id)->toArray();
-      return view('edituser', ['getUser' => $getUser]);
+      return view('editstaff', ['phongbans' => $phongbans, 'getUser' => $getUser]);
     }
 
     public function update(Request $request){
         $HoTenNV = $request->input('HoTenNV');
-        $username = $request->input('username');
-        $email = $request->input('email');
+        $ChucVu = $request['ChucVu'];
+        $user_id = $request->input('id');
+        $TenPB = $request['TenPB'];
         $Level = $request['level'];
         $id = $request->input('id');
 
         $user = new User();
         $getUser = $user->find($id);
         $getUser->HoTenNV = $HoTenNV;
-        $getUser->username = $username;
-        $getUser->email = $email;
         $getUser->Level = $Level;
         $getUser->save();
 
-      return redirect()->intended('user');
+        $phongban = new Phongban_user();
+        $getPhongban = $phongban->find($user_id);
+        $getPhongban->phongban_id = $TenPB;
+        $getPhongban->ChucVu = $ChucVu;
+        $getPhongban->save();
+      return redirect()->intended('edituser');
     }
-
-    public function destroy($id){
-        User::find($id)->delete();
-        return redirect()->intended('user');
-    }
-
-    public function show(){
-      $users = User::all();
-    return view('listuserpass')->with('users', $users);
-  }
 }

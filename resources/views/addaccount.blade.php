@@ -49,6 +49,25 @@
                                     </div>
                                     <div class="controls"><p style="color:red">{{$errors->first('password')}}</p></div>
                                 </div>
+								<div class="control-group">
+								    <label class="control-label" for="focusedInput">Chức vụ:</label>
+								    <div class="controls">
+										<select id="selectError3" name="ChucVu">
+											<option value="Trưởng phòng">Trưởng phòng</option>
+											<option value="Nhân viên">Nhân viên</option>
+								  		</select> 
+                                    </div>
+                                </div>
+                                <div class="control-group">
+								    <label class="control-label" for="focusedInput">Phòng ban:</label>
+								    <div class="controls">
+										<select id="selectError3" name="TenPB">
+											@foreach ($phongbans as $phongban)
+												<option value="{{ $phongban->id }}">{{ $phongban->TenPB }}</option>
+											@endforeach
+								  		</select> 
+                                    </div>
+                                </div>
                                 <div class="control-group">
 								    <label class="control-label" for="selectError3">Level:</label>
 								    <div class="controls">

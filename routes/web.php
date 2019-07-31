@@ -37,6 +37,11 @@ Route::get('user','UserController@index');
 Route::get('user/{id}/edit','UserController@edit');
 Route::post('user/update','UserController@update');
 Route::get('user/{id}/delete','UserController@destroy');
+
+Route::get('edituser','EditUserController@index');
+Route::get('edituser/{id}/edit','EditUserController@edit');
+Route::post('edituser/update','EditUserController@update');
+
 Route::get('user/pass','UserController@show');
 Route::get('user/reset','UserController@resetpassword');
 

@@ -23,8 +23,8 @@
 							  <tr>
 								  <th>Mã nhân viên</th>
 								  <th>Tên nhân viên</th>
-								  <th>Username</th>
-								  <th>Email</th>
+								  <th>Chức vụ</th>
+								  <th>Phòng ban</th>
 								  <th>Thao tác</th>
 							  </tr>
 						    </thead>   
@@ -33,14 +33,11 @@
 							<tr>
 								<td class="center">{{ $user->id }}</td>
 								<td class="center">{{ $user->HoTenNV }}</td>
-								<td class="center">{{ $user->username }}</td>
-								<td class="center">{{ $user->email }}</td>
-								<td class="center">
-									<a class="btn btn-info" href="user/{{ $user->id }}/edit">
+								<td class="center">{{ $user->phongbans[0] ? $user->phongbans[0]->pivot->ChucVu : '' }}</td>
+								<td class="center">{{ $user->phongbans[0] ? $user->phongbans[0]->TenPB : '' }}</td>
+								<td class="center" style="text-align: center; vertical-align: middle;">
+									<a class="btn btn-info" href="edituser/{{ $user->id }}/edit">
 										<i class="halflings-icon white edit"></i>  
-									</a>
-									<a class="btn btn-danger" href="user/{{ $user->id }}/delete">
-										<i class="halflings-icon white trash"></i> 
 									</a>
 								</td>
                             </tr>

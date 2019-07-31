@@ -64,6 +64,7 @@
                             <ul>
 								<li><a class="submenu" href="addaccount"><i class="icon-edit"></i><span class="hidden-tablet"> Thêm nhân viên</span></a></li>
 								<li><a class="submenu" href="user"><i class="icon-list"></i><span class="hidden-tablet"> Thông tin nhân viên</span></a></li>
+								<li><a class="submenu" href="edituser"><i class="icon-tasks"></i><span class="hidden-tablet"> Điều chỉnh phòng ban</span></a></li>
 								<li><a class="submenu" href="user/pass"><i class="icon-lock"></i><span class="hidden-tablet"> Thay đổi mật khẩu</span></a></li>
 							</ul>
                         </li>

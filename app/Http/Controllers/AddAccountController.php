@@ -7,13 +7,16 @@ use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Phongban;
+use App\Models\Phongban_user;
 use Validator;
 use Illuminate\Support\Facades\Auth;
 
 class AddAccountController extends Controller
 {
     public function insertform() {
-      return view('addaccount');
+        $phongbans = Phongban::all();
+      return view('addaccount', ['phongbans' => $phongbans]);
     }
 	
     public function insert(Request $request) {
@@ -42,6 +45,8 @@ class AddAccountController extends Controller
             $email = $request->input('email');
             $password = $request->input('password');
             $password = bcrypt($password);
+            $ChucVu = $request['ChucVu'];
+            $TenPB = $request['TenPB'];
             $level = $request['level'];
         
             $user = new User();
@@ -53,6 +58,13 @@ class AddAccountController extends Controller
             $user->level = $level;
             // $user->
             $user->save();
+
+            $user_id = $user->id;
+            $getPhongban = new Phongban_user();
+            $getPhongban->user_id = $user_id;
+            $getPhongban->ChucVu = $ChucVu;
+            $getPhongban->phongban_id = $request['TenPB'];
+            $getPhongban->save();
             return redirect()->intended('user');
         }
     }
