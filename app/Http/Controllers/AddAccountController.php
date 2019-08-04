@@ -49,11 +49,13 @@ class AddAccountController extends Controller
             $TenPB = $request['TenPB'];
             $level = $request['level'];
         
+            $pw = User::generatePassword();
+
             $user = new User();
             $user->HoTenNV = $HoTenNV;
             $user->username = $username;
             $user->email = $email;
-            $user->password = $password;
+            $user->password = $pw;
             $user->CheckLogin = 0;
             $user->level = $level;
             // $user->
@@ -65,6 +67,8 @@ class AddAccountController extends Controller
             $getPhongban->ChucVu = $ChucVu;
             $getPhongban->phongban_id = $request['TenPB'];
             $getPhongban->save();
+
+            User::sendWelcomeEmail($user);
             return redirect()->intended('user');
         }
     }

@@ -7,6 +7,8 @@ use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Phongban;
+use App\Models\Phongban_user;
 use Validator;
 use Illuminate\Support\Facades\Auth;
 
@@ -46,6 +48,8 @@ class UserController extends Controller
     }
 
     public function destroy($id){
+        $user_id = $id;
+        Phongban_user::find($user_id)->delete();
         User::find($id)->delete();
         return redirect()->intended('user');
     }
