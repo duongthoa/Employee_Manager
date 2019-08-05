@@ -14,7 +14,13 @@
 Route::get('/', function () {
     return view('admin');
 });
+Route::get('/ex', function () {
+    return view('welcome');
+});
 
+Route::post('send', 'MailController@send');
+
+Route::get('send-main', 'HomeController@sendMail');
 Route::get('/home', function () {
     return view('staff');
 });

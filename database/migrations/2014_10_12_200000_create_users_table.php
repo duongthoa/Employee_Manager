@@ -19,13 +19,15 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->tinyInteger('verified')->default(0);
+		    $table->string('email_token')->nullable();
             $table->string('HoTenNV')->nullable();
             $table->date('NgaySinh')->nullable();
             $table->string('DiaChi')->nullable();
             $table->string('GioiTinh')->nullable();
             $table->string('SDT')->nullable();
-            $table->string('CheckLogin');
-            $table->tinyInteger('Level');
+            $table->string('CheckLogin')->default(0);
+            $table->tinyInteger('Level')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
