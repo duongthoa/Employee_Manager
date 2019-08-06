@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Models\Phongban;
+use App\Models\Phongban_user;
 use Validator;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,9 +38,12 @@ class DepartmentController extends Controller
 
     public function destroy($id){
         $phongban_id = $id;
-        Phongban_user::find($phongban_id)->delete();
-        //User::find($id)->delete();
+        $data = Phongban_user::where('phongban_id', $phongban_id)->get('user_id')->toArray();
+        Phongban_user::where('phongban_id', $phongban_id)->delete();
         Phongban::find($id)->delete();
+        foreach ($data as $value) {
+          User::where('id', $value)->delete();
+        }
         return redirect()->intended('department');
     }
 }
