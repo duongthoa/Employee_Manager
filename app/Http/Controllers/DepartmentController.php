@@ -35,6 +35,9 @@ class DepartmentController extends Controller
     }
 
     public function destroy($id){
+        $phongban_id = $id;
+        Phongban_user::find($phongban_id)->delete();
+        //User::find($id)->delete();
         Phongban::find($id)->delete();
         return redirect()->intended('department');
     }

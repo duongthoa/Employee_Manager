@@ -11,6 +11,9 @@ use App\Models\Phongban;
 use App\Models\Phongban_user;
 use Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMail;
+use Illuminate\Support\Facades\Input;
 
 class AddAccountController extends Controller
 {
@@ -44,13 +47,11 @@ class AddAccountController extends Controller
             $username = $request->input('username');
             $email = $request->input('email');
             $password = $request->input('password');
-            $password = bcrypt($password);
+            $pw= bcrypt($password);
             $ChucVu = $request['ChucVu'];
             $TenPB = $request['TenPB'];
             $level = $request['level'];
-        
-            $pw = User::generatePassword();
-
+            
             $user = new User();
             $user->HoTenNV = $HoTenNV;
             $user->username = $username;
@@ -67,8 +68,12 @@ class AddAccountController extends Controller
             $getPhongban->ChucVu = $ChucVu;
             $getPhongban->phongban_id = $request['TenPB'];
             $getPhongban->save();
-
-            User::sendWelcomeEmail($user);
+            $input = $request->all();
+            /*Mail::send('mail', array('HoTenNV'=>$input["HoTenNV"],'username'=>$input["username"], 'password'=>$input['password']), function($message){
+                $message->to($email)->subject('Notifications Mail');
+            });*/
+            
+            Mail::to($email)->send(new SendMail());
             return redirect()->intended('user');
         }
     }

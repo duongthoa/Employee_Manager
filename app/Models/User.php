@@ -46,20 +46,4 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Phongban_user', 'user_id');
      }*/
     
-     public static function generatePassword()
-    {
-      // Generate random string and encrypt it. 
-      return bcrypt(str_random(35));
-    }
-    public static function sendWelcomeEmail($user)
-    {
-      // Generate a new reset password token
-      $token = app('auth.password.broker')->createToken($user);
-      
-      // Send email
-      Mail::send('emails.welcome', ['user' => $user, 'token' => $token], function ($m) use ($user) {
-        $m->from('duongthoa98@gmail.com', 'Your App Name');
-        $m->to($user->email, $user->name)->subject('Welcome to APP');
-      });
-    }
 }

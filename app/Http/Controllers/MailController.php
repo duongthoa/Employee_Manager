@@ -14,7 +14,12 @@ class MailController extends Controller
         $this->validate($request, [
             'email' => 'required'
         ]);
-     Mail::to($request->input('email'))->send(new SendMail());
+    Mail::to($request->input('email'))->send(new SendMail());
+    /* Mail::send('emails.email', [
+        'title' => 'ABC'
+    ], function($message){
+       $message->to('20163902@student.hust.edu.vn', 'Visitor')->subject('Visitor Feedback!');
+   });*/
      return redirect()->back()->with('success', 'Email sent successfully. Check your email.');
     }
 }
