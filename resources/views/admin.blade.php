@@ -65,7 +65,7 @@
 								<li><a class="submenu" href="addaccount"><i class="icon-edit"></i><span class="hidden-tablet"> Thêm tài khoản</span></a></li>
 								<li><a class="submenu" href="user"><i class="icon-list"></i><span class="hidden-tablet"> Thông tin nhân viên</span></a></li>
 								<li><a class="submenu" href="edituser"><i class="icon-tasks"></i><span class="hidden-tablet"> Điều chỉnh phòng ban</span></a></li>
-								<li><a class="submenu" href="user/pass"><i class="icon-lock"></i><span class="hidden-tablet"> Thay đổi mật khẩu</span></a></li>
+								<li><a class="submenu" href="userpass"><i class="icon-lock"></i><span class="hidden-tablet"> Thay đổi mật khẩu</span></a></li>
 							</ul>
                         </li>
 						<li>
@@ -95,12 +95,12 @@
 			<div class="row-fluid">
 				<div class="span3 statbox purple" onTablet="span6" onDesktop="span3">
 					<div class="icon"><i class="icon-group"></i></div>
-					<div class="number">300<i class="icon-arrow-up"></i></div>
+					<div class="number">{{ $users }}<i class="icon-arrow-up"></i></div>
 					<div class="title"><h1>Nhân viên</h1></div>
 				</div>
 				<div class="span3 statbox green" onTablet="span6" onDesktop="span3">
 					<div class="icon"><i class="icon-tasks"></i></div>
-					<div class="number">8<i class="icon-arrow-up"></i></div>
+					<div class="number">{{ $phongbans }}<i class="icon-arrow-up"></i></div>
 					<div class="title"><h1>Phòng ban</h1></div>
 					</div>
 				</div>

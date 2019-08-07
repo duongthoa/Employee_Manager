@@ -18,10 +18,11 @@
 						<h2><i class="halflings-icon white user"></i><span class="break"></span>Danh sách nhân viên</h2>
 					</div>
 					<div class="box-content" >
+					<form class="form-horizontal" role="form" action="{{ url('userpass/reset') }}" method="post">
 						<table class="table table-striped table-bordered bootstrap-datatable datatable" >
 						    <thead>
                                 <tr>
-								  <th >Mã nhân viên</th>
+								  <th>Mã nhân viên</th>
 								  <th>Tên nhân viên</th>
 								  <th>Tên đăng nhập</th>
 								  <th>Email</th>
@@ -36,8 +37,11 @@
 								<td class="center">{{ $user->username }}</td>
 								<td class="center">{{ $user->email }}</td>
 								<td class="center" style="text-align: center; vertical-align: middle;">
-									<a class="btn btn-info" href="user/reset">
+									<a class="btn btn-info" href="userpass/{{ $user->id }}/reset">
 										<i class="halflings-icon white repeat"></i> 
+									</a>
+									<a>
+									<input type="checkbox" name="id[]" value="{{ $user->id }}">
 									</a>
 								</td>
                             </tr>
@@ -46,15 +50,17 @@
                             <tfoot>
                                 <tr>
                                     <td colspan="4" style="text-align: center; vertical-align: middle;"></td>
-                                    <td colspan="1" style="text-align: center; vertical-align: middle;">
-                                        <a class="btn btn-info" href="user/reset">Reset all</a>
+									<td colspan="1" style="text-align: center; vertical-align: middle;">
+									{!! csrf_field() !!}
+										<button type="submit" class="btn btn-info">Reset</button>
                                     </td>
                                 </tr>
                             </tfoot>
-					    </table>            
+						</table>   
+					</form>         
 					</div>
 				</div><!--/span-->
 			
 	</div><!--/row-->
-			
+		
 @endsection

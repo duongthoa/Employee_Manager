@@ -11,6 +11,8 @@ use App\Models\Phongban;
 use App\Models\Phongban_user;
 use Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMail;
 
 class UserController extends Controller
 {
@@ -51,11 +53,43 @@ class UserController extends Controller
         $user_id = $id;
         Phongban_user::find($user_id)->delete();
         User::find($id)->delete();
-        return redirect()->intended('user');
+      return redirect()->intended('user');
     }
 
     public function show(){
-      $users = User::all();
-    return view('listuserpass')->with('users', $users);
-  }
+        $users = User::all();
+      return view('listuserpass')->with('users', $users);
+    }
+
+    public function resetpassword($id){
+        $password = str_random(6);
+        $user = new User();
+        $user = $user->find($id);
+        $user->password = bcrypt($password);
+        $user->CheckLogin = 0;
+        $user->save();
+        Mail::send('mailresetpass', array('HoTenNV'=>$user->HoTenNV, 'username'=>$user->username, 'password'=>$password), function($message) use ($user){
+          $message->subject('Notifications Mail');
+          $message->to($user->email);
+        });
+      return redirect()->intended('userpass');
+    }
+
+    public function resetpasswordall(Request $request){
+        //$users = User::all();
+        $users = $request->input('id');
+        foreach ($users as $value) {
+          $password = str_random(6);
+          $getUser = new User();
+          $getUser = $getUser->find($value);
+          $getUser->password = bcrypt($password);
+          $getUser->CheckLogin = 0;
+          $getUser->save();
+          Mail::send('mailresetpass', array('HoTenNV'=>$getUser->HoTenNV, 'username'=>$getUser->username, 'password'=>$password), function($message) use ($getUser){
+            $message->subject('Notifications Mail');
+            $message->to($getUser->email);
+          });
+        }
+      return redirect()->intended('userpass');
+    }
 }

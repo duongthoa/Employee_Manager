@@ -11,14 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('admin');
-});
-/*Route::get('/ex', function () {
-    return view('welcome');
-});
-
-Route::post('send', 'MailController@send');*/
+Route::get('/', 'AdminController@index');
 
 Route::get('/home', function () {
     return view('staff');
@@ -29,8 +22,6 @@ Route::get('/home', function () {
 Route::get('login','LoginController@getLogin');
 Route::post('login','LoginController@postLogin');
 Route::get('logout','LoginController@getLogout');
-
-//Route::get('logout','HomeController@getLogout');
 
 Route::get('resetpass','ResetPassController@show');
 Route::post('resetpass','ResetPassController@reset');
@@ -47,8 +38,9 @@ Route::get('edituser','EditUserController@index');
 Route::get('edituser/{id}/edit','EditUserController@edit');
 Route::post('edituser/update','EditUserController@update');
 
-Route::get('user/pass','UserController@show');
-Route::get('user/reset','UserController@resetpassword');
+Route::get('userpass','UserController@show');
+Route::get('userpass/{id}/reset','UserController@resetpassword');
+Route::post('userpass/reset','UserController@resetpasswordall');
 
 Route::get('adddepartment','AddDepartmentController@insertform');
 Route::post('adddepartment','AddDepartmentController@insert');

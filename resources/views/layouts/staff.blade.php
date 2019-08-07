@@ -22,7 +22,7 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownId">
                             <a class="dropdown-item" href="staff">Thông tin cá nhân</a>
                             <a class="dropdown-item" href="staff/edit">Chỉnh sửa thông tin</a>
-                            <a class="dropdown-item" href="#">Đổi mật khẩu</a>
+                            <a class="dropdown-item" href="resetpass">Đổi mật khẩu</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -30,10 +30,15 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav my-2 my-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link">Xin chào {{ Auth::user()->HoTenNV }}</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="{{url('logout')}}">Đăng xuất</a></li>
+                  <li class="dropdown">
+                    <a class="nav-link" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Xin chào {{ Auth::user()->HoTenNV }}</a>
+                      @if ( Auth::user()->Level == 1)
+                        <div class="dropdown-menu" aria-labelledby="dropdownId">
+                            <a class="dropdown-item" href="/">Trang quản trị</a>
+                        </div>
+                      @endif
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="{{url('logout')}}">Đăng xuất</a></li>
                 </ul>
           </div>
       </nav>
