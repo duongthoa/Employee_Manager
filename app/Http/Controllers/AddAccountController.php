@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMail;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Session;
 
 class AddAccountController extends Controller
 {
@@ -74,6 +75,7 @@ class AddAccountController extends Controller
             });*/
             
             Mail::to($email)->send(new SendMail());
+            session()->flash('success', 'Thêm tài khoản nhân viên thành công');
             return redirect()->intended('user');
         }
     }

@@ -50,6 +50,7 @@ class EditUserController extends Controller
         $getPhongban->phongban_id = $TenPB;
         $getPhongban->ChucVu = $ChucVu;
         $getPhongban->save();
+        session()->flash('success', 'Cập nhật dữ liệu thành công');
       return redirect()->intended('edituser');
     }
 }

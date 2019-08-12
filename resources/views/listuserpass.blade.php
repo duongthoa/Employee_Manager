@@ -17,7 +17,7 @@
 					<div class="box-header" data-original-title>
 						<h2><i class="halflings-icon white user"></i><span class="break"></span>Danh sách nhân viên</h2>
 					</div>
-					<div class="box-content" >
+				<div class="box-content" >
 					<form class="form-horizontal" role="form" action="{{ url('userpass/reset') }}" method="post">
 						<table class="table table-striped table-bordered bootstrap-datatable datatable" >
 						    <thead>

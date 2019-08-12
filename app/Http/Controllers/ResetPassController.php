@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class ResetPassController extends Controller
 {
@@ -41,11 +42,14 @@ class ResetPassController extends Controller
             $user->CheckLogin = 1;
             // $user->
             $user->save();
-            //DB::update('update users set password = ?, CheckLogin = 1 where id=?',[$password,Auth::user()->id]);
-            if ( Auth::user()->Level == 1)
-				return redirect()->intended('/');
-			else
-				return redirect()->intended('/home');
+            if ( Auth::user()->Level == 1){
+                session()->flash('success', 'Cập nhật dữ liệu thành công');
+                return redirect()->intended('/');
+            }
+            else{
+                session()->flash('success', 'Cập nhật dữ liệu thành công');
+                return redirect()->intended('/home');
+            }
         }
     }
 }

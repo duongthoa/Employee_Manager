@@ -45,7 +45,7 @@ class UserController extends Controller
         $getUser->email = $email;
         $getUser->Level = $Level;
         $getUser->save();
-
+        session()->flash('success', 'Cập nhật dữ liệu thành công');
       return redirect()->intended('user');
     }
 
@@ -53,12 +53,13 @@ class UserController extends Controller
         $user_id = $id;
         Phongban_user::find($user_id)->delete();
         User::find($id)->delete();
+        session()->flash('success', 'Xóa dữ liệu thành công');
       return redirect()->intended('user');
     }
 
     public function show(){
         $users = User::all();
-      return view('listuserpass')->with('users', $users);
+      return view('listuserpass', ['users' => $users]);
     }
 
     public function resetpassword($id){
@@ -72,6 +73,7 @@ class UserController extends Controller
           $message->subject('Notifications Mail');
           $message->to($user->email);
         });
+        session()->flash('success', 'Reset pasword thành công');
       return redirect()->intended('userpass');
     }
 
@@ -90,6 +92,7 @@ class UserController extends Controller
             $message->to($getUser->email);
           });
         }
+        session()->flash('success', 'Reset pasword thành công');
       return redirect()->intended('userpass');
     }
 }

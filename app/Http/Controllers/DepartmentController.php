@@ -33,6 +33,7 @@ class DepartmentController extends Controller
         $getPhongban = $phongban->find($id);
         $getPhongban->TenPB = $TenPB;
         $getPhongban->save();
+        session()->flash('success', 'Cập nhật dữ liệu thành công');
       return redirect()->intended('department');
     }
 
@@ -44,6 +45,7 @@ class DepartmentController extends Controller
         foreach ($data as $value) {
           User::where('id', $value)->delete();
         }
+        session()->flash('success', 'Xóa dữ liệu thành công');
         return redirect()->intended('department');
     }
 }

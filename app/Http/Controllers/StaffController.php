@@ -47,6 +47,7 @@ class StaffController extends Controller{
         $user->SDT = $SDT;
         // $user->
         $user->save();
+        session()->flash('success', 'Cập nhật dữ liệu thành công');
       return redirect()->intended('staff');
     }
 

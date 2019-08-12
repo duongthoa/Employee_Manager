@@ -33,6 +33,7 @@ class AddDepartmentController extends Controller
             $phongban->TenPB = $TenPB ;
             // $phongban->
             $phongban->save();
+            session()->flash('success', 'Thêm phòng ban thành công');
             return redirect()->intended('department');
         }
     }
