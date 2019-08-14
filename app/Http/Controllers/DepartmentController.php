@@ -11,6 +11,7 @@ use App\Models\Phongban;
 use App\Models\Phongban_user;
 use Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class DepartmentController extends Controller
 {

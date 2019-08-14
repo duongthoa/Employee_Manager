@@ -13,15 +13,12 @@ use Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMail;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
     public function index(){
-        //$users = DB::select('select * from users');
-      //return view('listuser',['users'=>$users]);
-        //$user = new User();
         $users = User::all();
-        //$user = User::find(1);
       return view('listuser')->with('users', $users);
     }
 

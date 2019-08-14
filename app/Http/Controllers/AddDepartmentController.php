@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Phongban;
 use Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AddDepartmentController extends Controller
 {

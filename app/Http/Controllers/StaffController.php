@@ -11,17 +11,15 @@ use App\Models\Phongban;
 use App\Models\Phongban_user;
 use Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class StaffController extends Controller{
     public function index(){
-        //$user = new User();
-        //$users = $user->all();
-      return view('inforuser');//->with('users', $users);
+      return view('inforuser');
     }
 
     public function edit(){
-      return view('editinforuser');//->with('getUser', $getUser);
-      //return view('editinforuser')->with('user', $user);
+      return view('editinforuser');
     }
 
     public function update(Request $request){
