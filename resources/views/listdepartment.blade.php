@@ -23,6 +23,8 @@
 							  <tr>
 								  <th>Mã phòng ban</th>
 								  <th>Tên phòng ban</th>
+								  <th>Trưởng phòng</th>
+								  <th>Số lượng nhân viên</th>
 								  <th>Thao tác</th>
 							  </tr>
 						    </thead>   
@@ -31,6 +33,18 @@
 							<tr>
 								<td>{{ $phongban->id }}</td>
 								<td class="center">{{ $phongban->TenPB }}</td>
+								<td class="center">
+									@if ($phongban->users->count() > 0)
+										@if ($phongban->users[0]->pivot->ChucVu == "Trưởng phòng")
+											{{ $phongban->users[0]->HoTenNV }}
+										@else
+											{{ "Chưa có trưởng phòng" }}
+										@endif
+									@else
+										{{ "Chưa có trưởng phòng" }}
+									@endif
+									</td>
+								<td class="center">{{ $phongban->users->count() }}</td>
 								<td class="center">
 									<a class="btn btn-info" href="department/{{ $phongban->id }}/edit">
 										<i class="halflings-icon white edit"></i>  
