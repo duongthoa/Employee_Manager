@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Mail;
 
 class User extends Authenticatable
 {
@@ -16,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password',
+        'username', 'level', 'email', 'password', 'CheckLogin',
     ];
 
     /**
@@ -36,4 +37,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function phongbans(){
+       return $this->belongsToMany('App\Models\Phongban', 'phongban_user', 'user_id', 'phongban_id')->withPivot('id', 'ChucVu');
+    }
+
+    /*public function phongban_user(){
+        return $this->hasMany('App\Models\Phongban_user', 'user_id');
+     }*/
+    
 }
