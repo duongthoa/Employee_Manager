@@ -34,7 +34,7 @@
                     <a class="nav-link" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Xin chào {{ Auth::user()->HoTenNV }}</a>
                       @if ( Auth::user()->Level == 1)
                         <div class="dropdown-menu" aria-labelledby="dropdownId">
-                            <a class="dropdown-item" href="/">Trang quản trị</a>
+                            <a class="dropdown-item" href="/root">Trang quản trị</a>
                         </div>
                       @endif
                   </li>

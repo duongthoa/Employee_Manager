@@ -44,7 +44,7 @@ class ResetPassController extends Controller
             $user->save();
             if ( Auth::user()->Level == 1){
                 session()->flash('success', 'Cập nhật dữ liệu thành công');
-                return redirect()->intended('/');
+                return redirect()->intended('/root');
             }
             else{
                 session()->flash('success', 'Cập nhật dữ liệu thành công');

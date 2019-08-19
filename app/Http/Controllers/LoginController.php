@@ -38,7 +38,7 @@ class LoginController extends Controller
 				}
 				else {
 					if ( Auth::user()->Level == 1)
-						return redirect()->intended('/');
+						return redirect()->intended('/root');
 					else
 						return redirect()->intended('/home');
 				}
@@ -51,6 +51,6 @@ class LoginController extends Controller
 	
 	public function getLogout() {
         Auth::logout();
-        return redirect()->intended('login');
+        return redirect()->intended('/');
      }
 }

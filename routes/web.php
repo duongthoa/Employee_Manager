@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'AdminController@index');
+Route::get('/root', 'AdminController@index');
 
 Route::get('/home', function () {
     return view('staff');
@@ -19,7 +19,7 @@ Route::get('/home', function () {
 
 //Route::get('/', 'HomeController@getIndex');
 
-Route::get('login','LoginController@getLogin');
+Route::get('/','LoginController@getLogin');
 Route::post('login','LoginController@postLogin');
 Route::get('logout','LoginController@getLogout');
 

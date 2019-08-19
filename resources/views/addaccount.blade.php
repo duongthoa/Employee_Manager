@@ -4,7 +4,7 @@
     <ul class="breadcrumb">
 		<li>
 			<i class="icon-home"></i>
-			<a href="/">Trang chủ</a>
+			<a href="/root">Trang quản trị</a>
 			<i class="icon-angle-right"></i> 
 		</li>
 		<li>

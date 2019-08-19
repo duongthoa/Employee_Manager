@@ -58,7 +58,7 @@
 			<div id="sidebar-left" class="span2">
 				<div class="nav-collapse sidebar-nav">
 					<ul class="nav nav-tabs nav-stacked main-menu">
-						<li><a href="/"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Thống kê</span></a></li>	
+						<li><a href="/root"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Thống kê</span></a></li>	
                         <li>
                             <a class="dropmenu" href="#"><i class="icon-user"></i><span class="hidden-tablet"> Quản lý nhân viên</span></a>
                             <ul>
@@ -86,10 +86,10 @@
 			<ul class="breadcrumb">
 				<li>
 					<i class="icon-home"></i>
-					<a href="/">Trang quản trị</a> 
+					<a href="/root">Trang quản trị</a> 
 					<i class="icon-angle-right"></i>
 				</li>
-				<li><a href="/">Thống kê</a></li>
+				<li><a href="/root">Thống kê</a></li>
 			</ul>
 
 			<div class="row-fluid">
