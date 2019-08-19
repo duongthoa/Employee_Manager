@@ -58,7 +58,7 @@
 			<div id="sidebar-left" class="span2">
 				<div class="nav-collapse sidebar-nav">
 					<ul class="nav nav-tabs nav-stacked main-menu">
-						<li><a href="/"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Thống kê</span></a></li>	
+						<li><a href="/root"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Thống kê</span></a></li>	
                         <li>
                             <a class="dropmenu" href="#"><i class="icon-user"></i><span class="hidden-tablet"> Quản lý nhân viên</span></a>
                             <ul>
