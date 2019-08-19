@@ -11,14 +11,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Eloquent::unguard();
-
-		DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 			
         $this->call(UsersTableSeeder::class);
         $this->call(PhongbanTableSeeder::class);
         $this->call(Phongban_userTableSeeder::class);
         
-		DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }
