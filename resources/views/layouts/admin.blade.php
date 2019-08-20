@@ -21,7 +21,7 @@
 		<div class="navbar-inner">
 			<div class="container-fluid">
 				
-				<a class="brand" href="#"><span><h2>Trang quản trị</h2></span></a>
+				<a class="brand" href="#"><span><h2>{{ trans('admin.Trang quản trị') }}</h2></span></a>
 								
 				<!-- start: Header Menu -->
 				<div class="nav-no-collapse header-nav">
@@ -29,16 +29,16 @@
 						<!-- start: User Dropdown -->
 						<li class="dropdown">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="halflings-icon white user"></i> Quản trị viên: {{ Auth::user()->HoTenNV }}
+								<i class="halflings-icon white user"></i> {{ trans('admin.Quản trị viên') }}: {{ Auth::user()->HoTenNV }}
 								<span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu">
 								<li class="dropdown-menu-title">
- 									<span>Cài đặt</span>
+ 									<span>{{ trans('admin.Cài đặt') }}</span>
 								</li>
-								<li><a href="home"><i class="halflings-icon home"></i> Trang chủ</a></li>
-								<li><a href="staff"><i class="halflings-icon user"></i> Thông tin cá nhân</a></li>
-								<li><a href="{{url('logout')}}"><i class="halflings-icon off"></i> Đăng xuất</a></li>
+								<li><a href="home"><i class="halflings-icon home"></i> {{ trans('admin.Trang chủ') }}</a></li>
+								<li><a href="staff"><i class="halflings-icon user"></i> {{ trans('admin.Thông tin cá nhân') }}</a></li>
+								<li><a href="{{url('logout')}}"><i class="halflings-icon off"></i> {{ trans('admin.Đăng xuất') }}</a></li>
 							</ul>
 						</li>
 						<!-- end: User Dropdown -->
@@ -58,21 +58,21 @@
 			<div id="sidebar-left" class="span2">
 				<div class="nav-collapse sidebar-nav">
 					<ul class="nav nav-tabs nav-stacked main-menu">
-						<li><a href="/root"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Thống kê</span></a></li>	
+						<li><a href="/root"><i class="icon-bar-chart"></i><span class="hidden-tablet"> {{ trans('admin.Thống kê') }}</span></a></li>	
                         <li>
-                            <a class="dropmenu" href="#"><i class="icon-user"></i><span class="hidden-tablet"> Quản lý nhân viên</span></a>
+                            <a class="dropmenu" href="#"><i class="icon-user"></i><span class="hidden-tablet"> {{ trans('admin.Quản lý nhân viên') }}</span></a>
                             <ul>
-								<li><a class="submenu" href="addaccount"><i class="icon-edit"></i><span class="hidden-tablet"> Thêm nhân viên</span></a></li>
-								<li><a class="submenu" href="user"><i class="icon-list"></i><span class="hidden-tablet"> Thông tin nhân viên</span></a></li>
-								<li><a class="submenu" href="edituser"><i class="icon-tasks"></i><span class="hidden-tablet"> Điều chỉnh phòng ban</span></a></li>
-								<li><a class="submenu" href="userpass"><i class="icon-lock"></i><span class="hidden-tablet"> Thay đổi mật khẩu</span></a></li>
+								<li><a class="submenu" href="addaccount"><i class="icon-edit"></i><span class="hidden-tablet"> {{ trans('admin.Thêm nhân viên') }}</span></a></li>
+								<li><a class="submenu" href="user"><i class="icon-list"></i><span class="hidden-tablet"> {{ trans('admin.Thông tin nhân viên') }}</span></a></li>
+								<li><a class="submenu" href="edituser"><i class="icon-tasks"></i><span class="hidden-tablet"> {{ trans('admin.Điều chỉnh phòng ban') }}</span></a></li>
+								<li><a class="submenu" href="userpass"><i class="icon-lock"></i><span class="hidden-tablet"> {{ trans('admin.Thay đổi mật khẩu') }}</span></a></li>
 							</ul>
                         </li>
 						<li>
-							<a class="dropmenu" href="#"><i class="icon-list-alt"></i><span class="hidden-tablet"> Quản lý phòng ban</span></a>
+							<a class="dropmenu" href="#"><i class="icon-list-alt"></i><span class="hidden-tablet"> {{ trans('admin.Quản lý phòng ban') }}</span></a>
 							<ul>
-								<li><a class="submenu" href="adddepartment"><i class="icon-edit"></i><span class="hidden-tablet"> Thêm phòng ban</span></a></li>
-								<li><a class="submenu" href="department"><i class="icon-list"></i><span class="hidden-tablet"> Thông tin phòng ban</span></a></li>
+								<li><a class="submenu" href="adddepartment"><i class="icon-edit"></i><span class="hidden-tablet"> {{ trans('admin.Thêm phòng ban') }}</span></a></li>
+								<li><a class="submenu" href="department"><i class="icon-list"></i><span class="hidden-tablet"> {{ trans('admin.Thông tin phòng ban') }}</span></a></li>
 							</ul>	
 						</li>
 					</ul>

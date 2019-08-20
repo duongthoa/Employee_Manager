@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="vi">
   <head>
     <title>@yield('title')</title>
     <!-- Required meta tags -->
@@ -12,33 +12,33 @@
   <body>
     <div class="container-fluid">
         <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-            <a class="navbar-brand" href="/home"><h1>Trang chủ</h1></a>
+            <a class="navbar-brand" href="/home"><h1>{{ trans('staff.home') }}</h1></a>
             <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
               aria-expanded="false" aria-label="Toggle navigation"></button>
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Thông tin người sử dụng</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ trans('staff.userinfor') }}</a>
                         <div class="dropdown-menu" aria-labelledby="dropdownId">
-                            <a class="dropdown-item" href="staff">Thông tin cá nhân</a>
-                            <a class="dropdown-item" href="staff/edit">Chỉnh sửa thông tin</a>
-                            <a class="dropdown-item" href="resetpass">Đổi mật khẩu</a>
+                            <a class="dropdown-item" href="staff">{{ trans('staff.userinfor1') }}</a>
+                            <a class="dropdown-item" href="staff/edit">{{ trans('staff.editinfor') }}</a>
+                            <a class="dropdown-item" href="resetpass">{{ trans('staff.resetpass') }}</a>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="inforstaff">Thông tin cấp dưới</a>
+                        <a class="nav-link" href="inforstaff">{{ trans('staff.staffinfor') }}</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav my-2 my-lg-0">
                   <li class="dropdown">
-                    <a class="nav-link" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Xin chào {{ Auth::user()->HoTenNV }}</a>
+                    <a class="nav-link" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ trans('staff.hello') }} {{ Auth::user()->HoTenNV }}</a>
                       @if ( Auth::user()->Level == 1)
                         <div class="dropdown-menu" aria-labelledby="dropdownId">
-                            <a class="dropdown-item" href="/root">Trang quản trị</a>
+                            <a class="dropdown-item" href="/root">{{ trans('staff.root') }}</a>
                         </div>
                       @endif
                   </li>
-                  <li class="nav-item"><a class="nav-link" href="{{url('logout')}}">Đăng xuất</a></li>
+                  <li class="nav-item"><a class="nav-link" href="{{url('logout')}}">{{ trans('staff.logout') }}</a></li>
                 </ul>
           </div>
       </nav>
